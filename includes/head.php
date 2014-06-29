@@ -1,2 +1,1 @@
-
-<link rel="stylesheet" href="css/main.css" /> <!-- this is the main css file-->
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'styles/bootstrap.min.css'?>">

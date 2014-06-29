@@ -1,47 +1,34 @@
 <?php
+// function to redirect in case previleges are not right
+//office has privilege -2
+//student members have privilege 1
+//coordinators have privilege 2
+//admin will have privilege 3
+if($privilege =$this->session->userdata('privilege')){ 
 
-	//function to select the database
-	function data_query($table,$columns,$column,$value){
-		$query = mysql_query("SELECT * FROM $table WHERE $column = '$value'");
-		if(!$query){
-			die("Database query failed ". mysql_error());		
-		}
-		else{
-
-			return $query;	
-		}
-	}
-	
-	function insert($userid,$fromid,$toid,$deadline){
-	$query = mysql_query("INSERT INTO work(id,to_user,work,fromid,toid,workfile,reportfile) VALUES ('','$userid','','$fromid','$toid','$deadline','')");
-	return $query;
-	}
-	
-	function get_user($username){
-	$query = mysql_query("SELECT user FROM members WHERE userid = '$username'");
-	if(!$query){
-		die("Database query failed ". mysql_error());		
-	}
-	else{
-		$result = mysql_fetch_array($query);
-		return $result["user"];
-	}
-	}
-function reload(){
-
-if($_SESSION["user"]  == "student") header("Location:member.php");
-else if($_SESSION["user"]  == "head") header("Location:heads.php");
-else if($_SESSION["user"]  == "staff") header("Location:staff.php");
-}
-
-function create_file_name(){
-$id=0;
-$userid = $_SESSION["userid"];
-$query = data_query("work","id","to_user",$userid);
-while($row = mysql_fetch_array($query)){
-$id = $row["id"];
-}
-$file = $id;
-return $file;
+			if ($privilege==0){
+				
+				$this->session->set_userdata('privilege', '0');
+				$this->office();
+			}
+			else if ($privilege==1){
+				
+				$this->session->set_userdata('privilege', '1');
+				$this->load->view('members');
+			}
+			else if ($privilege==2){
+			
+				$this->session->set_userdata('privilege', '2');
+				$this->load->view('coordinator');
+			}
+			else if ($privilege==3){
+				
+				$this->session->set_userdata('privilege', '3');
+				//$this->admin();
+				$this->load->view('admin');
+			}
+			else{
+				$this->load->view('form');
+			}
 }
 ?>

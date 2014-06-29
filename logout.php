@@ -1,5 +1,6 @@
 <?php
-session_start();
-session_destroy();
-header("Location:login.php");
+
+$this->session->unset_userdata('privilege');
+$this->session->sess_destroy();
+$this->load->view('logout');
 ?>
