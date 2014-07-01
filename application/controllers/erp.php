@@ -17,10 +17,13 @@ class Erp extends CI_Controller{
 
 		$privilege =$this->session->userdata('privilege'); 
 
-			/*if ($privilege==0){
-				redirect('erp/office','location');
-				return true;
-			}*/
+			/* 
+			members have privilege = 1
+			office have privilege = 0
+			coordinator has privilege = 2
+			admin has privilege = 3
+			
+			*/
 			
 
 			 if ($privilege==1){
