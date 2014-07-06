@@ -183,7 +183,7 @@ class Erp extends CI_Controller{
 
 	
 
-	/* Below are the functions that will be used by the admin */
+	
 
 	
 
