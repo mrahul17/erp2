@@ -12,6 +12,7 @@ if($privilege!=-2 && $privilege!=1 && $privilege!=2 && $privilege!=3){
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url().'styles/bootstrap.min.css' ;?>">
 </head>
 <body class="container">
+	<?php $this->load->view('templates/header');?>
 <h2>Search for alumni in database</h2>
 <?php $table = "alumni";?>
 <?php
@@ -48,7 +49,7 @@ echo '</select><br>';
 }
 echo '<input type="submit" class="form-control" value = "Search" name = "submit">'; 
 echo '</form>';
-	
-?>
 
+?>
+<?php $this->load->view('templates/footer');?>
 </body>
