@@ -81,18 +81,18 @@ echo "Loaded a total of $affectedRows records from this csv file.\n";
 
 	}
 
-	public function get_table_name(){
+	public function index(){
 
 		$access = $this->access_check();
 		if($access=="False")
 			$this->load->view('access_error');
 		else{
-		if(isset($_POST['table_selection'])){
+		
 			//var_dump($_POST);
-			$data['table'] = $_POST['table'];
+			$data['table'] = 'alumni';//this is only a temporary replacement. when more ables will have to be used, we will need to modify this. $_POST['table'];
 			//echo $data['table'];
 			$this->load->view('coordinators/assign_alumni',$data);
-		}
+		
 	}
 	}
 
@@ -158,9 +158,12 @@ echo "Loaded a total of $affectedRows records from this csv file.\n";
 		$sql = "SELECT * FROM $table WHERE";
 		$count= 0;
 		if(isset($_POST['register'])){
+			//var_dump($_POST);
+			$flag = 0;
 			
 			foreach ($_POST as $key => $value) {
 				if($key!=$value && $key!="register"){
+					$flag=1;
 					$this->db->escape($key);
 					$this->db->escape($value);
 					if($count==0)
@@ -170,7 +173,8 @@ echo "Loaded a total of $affectedRows records from this csv file.\n";
 					$count++;
 					//echo $sql;
 				}
-			}						//var_dump($_POST);
+			}
+					if($flag==1)	{					//var_dump($_POST);
 //echo $sql;
 					$query = mysql_query($sql);
 					//$this->table->generate($query);
@@ -182,15 +186,18 @@ echo "Loaded a total of $affectedRows records from this csv file.\n";
 						$update_query = mysql_query("UPDATE alumni SET registered='yes' WHERE id = $row[id]");
 						//var_dump($_POST);
 						if($update_query){
-							header('Refresh:3,url=get_table_name.sac');
-							echo "alum registered";
+							header('Refresh:3,url=index.sac');
+							echo "<h2>Alum registered.. You will automatically be redirected back</h2>";
 						}else{
 							echo "unable to register, check inputs!!";
 						}
 						
 	}
 }
-
+}else{
+	header('Refresh:3,url=index.sac');
+	echo "<h2>No query specified.. You will automatically be redirected..</h2>";
+}
 }//}
 }}
 //var_dump($_POST);

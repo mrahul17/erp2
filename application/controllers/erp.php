@@ -94,7 +94,8 @@ class Erp extends CI_Controller{
 				$userdata['username']  = $username;
 			$userdata['privilege'] = $privilege;
 			$this->session->set_userdata($userdata);
-				$this->load->view('coordinator');
+				redirect('coordinator/index');
+				//$this->load->view('coordinator');
 			}
 			else if ($privilege==3){
 				

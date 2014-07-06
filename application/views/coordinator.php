@@ -44,7 +44,7 @@ if(!isset($_POST['table'])){
 ?>
     </li>
     <li>
-      To update registration stats in the databse, click <a href="<?php echo base_url().'index.php/coordinator/new_registration'?>">Here</a>
+      To update registration stats in the database, click <a href="<?php echo base_url().'index.php/coordinator/new_registration'?>">Here</a>
 
 
     </li>
