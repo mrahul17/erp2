@@ -67,6 +67,7 @@ $this->table->clear();
 <?php
   $fields = $this->db->list_fields($table);
 echo form_open('coordinator/register_alumni');
+
 foreach ($fields as $field)
 {  if($field!="registered"){
   
@@ -76,12 +77,14 @@ foreach ($fields as $field)
    //$tables = $this->db->list_tables();
  //  var_dump($tables);
 
-   $query = mysql_query("SELECT DISTINCT $field FROM $table ");
+  // $query = mysql_query("SELECT DISTINCT $field FROM $table ");
           echo '<option selected = "selected">'.$field.'</option>';
 
    // foreach ($tables as $table) {
     # code...
-   $query = mysql_query("SELECT DISTINCT $field FROM $table ");
+   $query = mysql_query("SELECT DISTINCT $field FROM $table WHERE registered='no' ");
+
+
   if($query){
     while($result = mysql_fetch_array($query)){
        foreach ($result as $key => $value) {
