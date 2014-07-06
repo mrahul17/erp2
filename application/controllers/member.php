@@ -43,7 +43,12 @@ class Member extends CI_Controller{
 		if(!isset($privilege)||$privilege=='-1'){
 			redirect('/erp/login');
 		}
-		if(isset($_POST['work'])){
+		if(isset($_POST['work'])||$this->session->userdata('work')){
+			if(isset($_POST['work'])){
+				$this->session->set_userdata('work',$_POST['work']);//for the first time
+			}else{
+				$_POST['work'] = $this->session->userdata('work');//for the other cases
+			}
 
 			$workid['work'] = $_POST['work'];
 		
@@ -92,7 +97,8 @@ class Member extends CI_Controller{
 			$this->db->where('id',$id);
 			if($this->db->update($table,$data)){
 			//echo "<script>document.getElementById('statusdiv').innerHTML = 'Value Updated';</script>";
-				echo "Values have been updated";
+				header('Refresh:3, url="work.sac"');
+				echo "Values have been updated.. You will automatically be redirected back";
 				unset($_POST['id']);
 		//var_dump($_POST);
 		}
