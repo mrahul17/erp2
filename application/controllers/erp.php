@@ -12,7 +12,10 @@ class Erp extends CI_Controller{
 		$this->load->library('upload');
 		$this->load->helper('url');
 	}
-
+	
+	public function index(){
+		$this->login();
+	}
 	private function check_already_logged(){
 
 		$privilege =$this->session->userdata('privilege'); 
