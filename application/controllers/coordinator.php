@@ -182,6 +182,7 @@ echo "Loaded a total of $affectedRows records from this csv file.\n";
 						$update_query = mysql_query("UPDATE alumni SET registered='yes' WHERE id = $row[id]");
 						//var_dump($_POST);
 						if($update_query){
+							header('Refresh:3,url=get_table_name.sac');
 							echo "alum registered";
 						}else{
 							echo "unable to register, check inputs!!";
