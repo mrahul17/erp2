@@ -6,4 +6,5 @@
 
 	You Have Been Successfully Logged Out of the ERP .<br>
 	To Login click <a href="login">here</a>.
+	<?php $this->load->view('templates/footer');?>
 </body>
