@@ -133,8 +133,10 @@ class Member extends CI_Controller{
 
 	public function search(){
 		$privilege = $this->session->userdata('privilege');
-		if($privilege==1||$privilege==-2||$privilege==2||$privilege==3)
+		if($privilege==1||$privilege==-2||$privilege==2||$privilege==3){
+		
 		$this->load->view('members/search');
+		}
 		else
 		$this->load->view('access_error');
 	}

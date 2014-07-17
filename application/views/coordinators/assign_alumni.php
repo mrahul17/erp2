@@ -106,4 +106,15 @@ echo '</form>';
 ?>
 
 </li>
+<li>
+<h2>Upload new records in database</h2>
+<?php echo form_open_multipart('coordinator/put_in_database');?>
+<input type="file" name="data"><br>
+<input type="submit" value="Upload" name="submit">
+
+</form>
+
+</li>
+<?php //$this->load->view('templates/footer');?>
+
 </ol>
