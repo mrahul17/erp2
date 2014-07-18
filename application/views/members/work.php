@@ -1,14 +1,13 @@
-<?php if($this->session->userdata('privilege')!='1' || $this->session->userdata('privilege')!=1)
-$this->load->file('includes/functions.php');
+<?php //if($this->session->userdata('privilege')!='1' || $this->session->userdata('privilege')!=1)
+//$this->load->file('includes/functions.php');
 ?>
 <head>
 <?php include('includes/head.php');?>
 </head>
 <body class="container">
    <?php $this->load->view('templates/header');?>
-<h2>This is the page for student members.</h2>
 
-<h3>Below is the list of all works assigned till date</h3>
+<h3>List of all works assigned till date</h3>
 <?php
 $username = $this->session->userdata('username');
 
@@ -29,10 +28,12 @@ if ($query->num_rows() > 0)
       echo '</tr>';
     
    }
-} 
+ 
 ?>
 </table>
 <input type="submit" value="Select this work" name="submit">
-</form>
-<?php $this->load->view('templates/footer');?>
+</form><?php }else{
+   echo 'No work has been alloted to you.<br>';
+}
+$this->load->view('templates/footer');?>
 </body>
