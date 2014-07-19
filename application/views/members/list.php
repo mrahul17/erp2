@@ -34,7 +34,7 @@ $workid = $work;
 $table_name ="alumni";
 $query = $this->db->get_where('work',array('id'=>$workid));
 $data = array();
-echo $workid;
+
 if($query->num_rows()>0){
 	$row = $query->row();
 	$table_name = $row->table;
@@ -181,4 +181,5 @@ xhr.send();
 }
 
 </script>
+<script type="text/javascript"></script>
 </body>
