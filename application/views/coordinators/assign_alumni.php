@@ -13,7 +13,7 @@
       //var_dump($query);?>
       <?php 
       $table= "alumni";
-      $query2 = $this->db->get_where($table,array('assigned'=>0));
+      $query2 = $this->db->get_where($table,array('assigned'=>'No'));
       ?>
 
       <?php

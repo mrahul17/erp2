@@ -31,10 +31,10 @@ $this->load->view('templates/header');
 
 
 $workid = $work;
-$table_name ="";
+$table_name ="alumni";
 $query = $this->db->get_where('work',array('id'=>$workid));
 $data = array();
-
+echo $workid;
 if($query->num_rows()>0){
 	$row = $query->row();
 	$table_name = $row->table;
@@ -54,7 +54,7 @@ for ($i=$from_id; $i <=$to_id ; $i++) {
 	foreach ($row as $key => $value) {
 		$data[$key] = $value;
 	}
-	if($data['assigned']==1)
+	if($data['assigned']=="Yes")
 	$this->table->add_row($data);
 }}
 $tmpl = array (

@@ -85,7 +85,7 @@ class Member extends CI_Controller{
 	public function get_details(){
 		$access = $this->access_check();
 		if($access=="False")
-		$this->load->view('access_error');
+			$this->load->view('access_error');
 		else{
 		if(isset($_POST['id'])&&isset($_POST['tablename'])){
 			$id = $_POST['id'];
@@ -116,10 +116,10 @@ class Member extends CI_Controller{
 			echo form_open('member/get_details');
 			foreach ($row as $key => $value) {
 				//echo $key.'     <input type="text" name='.$key.' value='.$value.'><br>';
-				if($key!="id" && $key!="assigned")
+				if($key!="id" && $key!="assigned" && $key!="registered" && $key!="paid")
 					echo $key.'<input type="text" class="form-control" name="'.$key.'" value="'.$value.'"><br>';
 				else if($key=="id")
-					echo $key.'<input type="hidden" class="form-control" name="'.$key.'" value="'.$value.'"><br>';
+					echo '<input type="hidden" class="form-control" name="'.$key.'" value="'.$value.'"><br>';
 			}
 			echo '<input type="hidden" value="'.$table.'"name="tablename">';
 			echo '<input type="submit" value="Update" name ="submit">';

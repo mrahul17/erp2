@@ -10,8 +10,11 @@
 <h3>List of all works assigned till date</h3>
 <?php
 $username = $this->session->userdata('username');
-
-$query = $this->db->get_where('work', array('toname' => $username));
+$query = $this->db->get_where('users',array('username'=>$username));
+if($query->num_rows()>0){
+   $row = $query->row_array();
+}
+$query = $this->db->get_where('work', array('toname' => $row['name']));
 if ($query->num_rows() > 0)
 {
 	echo form_open('member/work');
