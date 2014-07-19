@@ -82,7 +82,7 @@ foreach ($fields as $field)
 
    // foreach ($tables as $table) {
     # code...
-   $query = mysql_query("SELECT DISTINCT $field FROM $table WHERE registered='no' ");
+   $query = mysql_query("SELECT DISTINCT $field FROM $table WHERE registered=0 ");
 
 
   if($query){
@@ -115,6 +115,5 @@ echo '</form>';
 </form>
 
 </li>
-<?php //$this->load->view('templates/footer');?>
 
 </ol>

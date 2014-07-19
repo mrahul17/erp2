@@ -97,7 +97,7 @@ class Member extends CI_Controller{
 			$this->db->where('id',$id);
 			if($this->db->update($table,$data)){
 			//echo "<script>document.getElementById('statusdiv').innerHTML = 'Value Updated';</script>";
-				header('Refresh:3, url="work.sac"');
+				header('Refresh:2, url="work.sac"');
 				echo "Values have been updated.. You will automatically be redirected back";
 				unset($_POST['id']);
 		//var_dump($_POST);
