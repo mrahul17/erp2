@@ -4,7 +4,7 @@
 </head>
 <body class="container">
 
-	You Have Been Successfully Logged Out of the ERP .<br>
-	To Login click <a href="login">here</a>.
+	<h3>You Have Been Successfully Logged Out of the ERP .</h3><br>
+	</h3>To Login click <a href="login">here</a>.</h3>
 	<?php $this->load->view('templates/footer');?>
 </body>
