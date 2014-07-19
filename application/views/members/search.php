@@ -19,7 +19,7 @@ if($privilege!=-2 && $privilege!=1 && $privilege!=2 && $privilege!=3){
 	$fields = $this->db->list_fields($table);
 echo form_open('member/generate_result');
 foreach ($fields as $field)
-{	if($field!="registered"){
+{	
    echo '<select name ="'.$field.'" class="form-control">';
    
     // Time to use query bindings
@@ -39,14 +39,8 @@ foreach ($fields as $field)
 echo '</select><br>';
    
    //echo $query;
-}}
- if($field=="registered"){
-	echo '<select name="registered" class="form-control">';
-	echo '<option selected="selected" class="form-control" value="registered">registered</option>';
-	echo '<option class="form-control" value="yes">Yes</option>';
-	echo '<option class="form-control" value="no">No</option>';
-	echo '</select>';
 }
+ 
 echo '<input type="submit" class="form-control" value = "Search" name = "submit">'; 
 echo '</form>';
 
