@@ -31,10 +31,10 @@ $this->load->view('templates/header');
 
 
 $workid = $work;
-$table_name ="";
+$table_name ="alumni";
 $query = $this->db->get_where('work',array('id'=>$workid));
-
-
+$data = array();
+echo $workid;
 if($query->num_rows()>0){
 	$row = $query->row();
 	$table_name = $row->table;
@@ -50,22 +50,13 @@ if($query->num_rows()>0){
 for ($i=$from_id; $i <=$to_id ; $i++) { 
 	$query = $this->db->get_where($table_name,array('id'=>$i));
 	$row = $query->row();
-	// $query = mysql_query("SELECT * FROM $table_name WHERE id=$i");
-	// if($query){
-	// 	$row = mysql_fetch_array($query);
-	// 	foreach ($row as $key => $value) {
-	// 		$data[$key] = element($key,$row);
-	// 	}
-	// 	//$this->table->add_row($data);
-	// 	//print_r($data);
-	// }
-	//
+	if($row){
 	foreach ($row as $key => $value) {
 		$data[$key] = $value;
 	}
-	if($data['assigned']==1)
+	if($data['assigned']=="Yes")
 	$this->table->add_row($data);
-}
+}}
 $tmpl = array (
                     'table_open'          => '<table class="table table-striped table-bordered table-hover" border="5" cellpadding="6" cellspacing="4">',
 

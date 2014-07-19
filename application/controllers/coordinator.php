@@ -35,6 +35,11 @@ class Coordinator extends CI_Controller{
 	}
 
 	public function upload(){
+		$access = $this->access_check();
+		if($access=="False")
+			$this->load->view('access_error');
+		else{
+			if(isset($_POST['submit'])&&isset($_FILES)){
 		$config['upload_path'] = './uploads/';
 		$config['allowed_types'] = 'application/vnd.ms-excel';
 		$config['overwrite'] = FALSE;
@@ -43,9 +48,14 @@ class Coordinator extends CI_Controller{
 		var_dump($config);		
 		$this->upload->do_upload();
 		echo $this->upload->display_errors('<p>', '</p>');
-	}
+	}}}
 
 	public function put_in_database(){
+		$access = $this->access_check();
+		if($access=="False")
+			$this->load->view('access_error');
+		else{
+			if(isset($_POST['submit'])&&isset($_FILES['data'])){
 		$databasehost = 'localhost'; 
 		$databasename = 'erp'; 
 		$databasetable = "alumni"; 
@@ -53,7 +63,7 @@ class Coordinator extends CI_Controller{
 		$databasepassword = 'rmmr'; 
 		$fieldseparator = ","; 
 		$lineseparator = "\n";
-		$csvfile = './uploads/alumni.csv';
+		$csvfile = $_FILES['data']['tmp_name'];
 
 
 		if(!file_exists($csvfile)) {
@@ -76,10 +86,11 @@ class Coordinator extends CI_Controller{
     LOAD DATA LOCAL INFILE ".$pdo->quote($csvfile)." INTO TABLE `$databasetable`
       FIELDS TERMINATED BY ".$pdo->quote($fieldseparator)."
       LINES TERMINATED BY ".$pdo->quote($lineseparator));
+	header('Refresh:3,url=index.sac');
 
-echo "Loaded a total of $affectedRows records from this csv file.\n";
-
-	}
+	echo "Loaded a total of $affectedRows records from this csv file.\n You will automaticall be redirected.";
+	
+	}}}
 
 	public function index(){
 
@@ -119,7 +130,7 @@ echo "Loaded a total of $affectedRows records from this csv file.\n";
 			echo "Work assigned";
 			$table = $_POST['table'];
 			for($i=$_POST['fromid'];$i<=$_POST['toid'];$i++){
-				$this->db->update($table, array('assigned'=>1), "id =".$i);
+				$this->db->update($table, array('assigned'=>"Yes"), "id =".$i);
 			}
 			//send a mail to assigned people.
 			$query = $this->db->get_where('users',array('name'=>$_POST['toname']));
@@ -183,7 +194,7 @@ echo "Loaded a total of $affectedRows records from this csv file.\n";
 					if(mysql_num_rows($query)>0){
 						$row = mysql_fetch_array($query);
 						//var_dump($row);
-						$update_query = mysql_query("UPDATE alumni SET registered='yes' WHERE id = $row[id]");
+						$update_query = mysql_query("UPDATE alumni SET registered='Yes' WHERE id = $row[id]");
 						//var_dump($_POST);
 						if($update_query){
 							header('Refresh:3,url=index.sac');
@@ -201,7 +212,63 @@ echo "Loaded a total of $affectedRows records from this csv file.\n";
 }//}
 }}
 //var_dump($_POST);
+
+	public function pay_alumni(){
+		$access = $this->access_check();
+		if($access=="False")
+		$this->load->view('access_error');
+		else{
+		//$tables = $this->db->list_tables();
+		//foreach ($tables as $table) {
+		$table = "alumni";
+		$sql = "SELECT * FROM $table WHERE";
+		$count= 0;
+		if(isset($_POST['paid'])){
+			//var_dump($_POST);
+			$flag = 0;
+			
+			foreach ($_POST as $key => $value) {
+				if($key!=$value && $key!="paid"){
+					$flag=1;
+					$this->db->escape($key);
+					$this->db->escape($value);
+					if($count==0)
+					$sql .=" $key='$value'";
+				 	else
+					$sql .=" AND $key='$value'";
+					$count++;
+					//echo $sql;
+				}
+			}
+					if($flag==1)	{					//var_dump($_POST);
+//echo $sql;
+					$query = mysql_query($sql);
+					//$this->table->generate($query);
+					if($query){
+						//echo $sql;
+					if(mysql_num_rows($query)>0){
+						$row = mysql_fetch_array($query);
+						//var_dump($row);
+						$update_query = mysql_query("UPDATE alumni SET paid='Yes' WHERE id = $row[id]");
+						//var_dump($_POST);
+						if($update_query){
+							header('Refresh:3,url=index.sac');
+							echo "<h2>Alum paid.. You will automatically be redirected back</h2>";
+						}else{
+							echo "unable to update payment.. check inputs!!";
+						}
+						
+	}
 }
+}else{
+	header('Refresh:3,url=index.sac');
+	echo "<h2>No query specified.. You will automatically be redirected..</h2>";
+}
+}//}
+}}
+
+}
+
 
 
 

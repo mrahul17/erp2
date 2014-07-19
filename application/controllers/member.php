@@ -85,7 +85,7 @@ class Member extends CI_Controller{
 	public function get_details(){
 		$access = $this->access_check();
 		if($access=="False")
-		$this->load->view('access_error');
+			$this->load->view('access_error');
 		else{
 		if(isset($_POST['id'])&&isset($_POST['tablename'])){
 			$id = $_POST['id'];
@@ -97,7 +97,7 @@ class Member extends CI_Controller{
 			$this->db->where('id',$id);
 			if($this->db->update($table,$data)){
 			//echo "<script>document.getElementById('statusdiv').innerHTML = 'Value Updated';</script>";
-				header('Refresh:3, url="work.sac"');
+				header('Refresh:2, url="work.sac"');
 				echo "Values have been updated.. You will automatically be redirected back";
 				unset($_POST['id']);
 		//var_dump($_POST);
@@ -116,10 +116,10 @@ class Member extends CI_Controller{
 			echo form_open('member/get_details');
 			foreach ($row as $key => $value) {
 				//echo $key.'     <input type="text" name='.$key.' value='.$value.'><br>';
-				if($key!="id" && $key!="assigned")
+				if($key!="id" && $key!="assigned" && $key!="registered" && $key!="paid")
 					echo $key.'<input type="text" class="form-control" name="'.$key.'" value="'.$value.'"><br>';
 				else if($key=="id")
-					echo $key.'<input type="hidden" class="form-control" name="'.$key.'" value="'.$value.'"><br>';
+					echo '<input type="hidden" class="form-control" name="'.$key.'" value="'.$value.'"><br>';
 			}
 			echo '<input type="hidden" value="'.$table.'"name="tablename">';
 			echo '<input type="submit" value="Update" name ="submit">';
@@ -133,8 +133,10 @@ class Member extends CI_Controller{
 
 	public function search(){
 		$privilege = $this->session->userdata('privilege');
-		if($privilege==1||$privilege==-2||$privilege==2||$privilege==3)
+		if($privilege==1||$privilege==-2||$privilege==2||$privilege==3){
+		
 		$this->load->view('members/search');
+		}
 		else
 		$this->load->view('access_error');
 	}

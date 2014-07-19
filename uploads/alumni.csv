@@ -1,47 +1,47 @@
-NAME,ALUM SINCE,HALL
-Atanu Das,1964,Rajendra Prasad Hall
-B K Tariyal,1964,
-Jyoti Parshad Banerjee,1964,
-K K Saxena,1964,Rajendra Prasad Hall
-Kiran Sankar Sahu,1964,
-Mithilesh Kumar Sinha,1964,Azad Hall
-Satish Bansal,1964,Nehru Hall
-Tapash Kumar Pal,1964,Rajendra Prasad Hall
-Amitava De,1974,Lala Lajpat Rai Hall
-Ashok Kumar Ghosh,1974,Lala Lajpat Rai Hall
-Niladri Nirjhar Biswas,1974,
-Partha Sen,1974,Rajendra Prasad Hall
-Pramod Kumar Gupta,1974,Vidya Sagar Hall
-Shyam Sunder Verma,1974,Vidya Sagar Hall
-Sudip Sen,1974,Nehru Hall
-Sushim Kumar Dasgupta,1974,Patel Hall
-Tirthankar Banerjee,1974,Patel Hall
-Swapan Guha,1974,Rajendra Prasad Hall
-Vinod Rai Juthani,1974,
-S Anand,1989,Azad Hall
-Ashis Kumar Roy,1989,Azad Hall
-Dinesh Shastri,1989,Patel Hall
-J Ramesh,1989,Radhakrishnan Hall
-Jayanta Kumar Rudra,1989,
-Peshwa Acharya,1989,Rajendra Prasad Hall
-Pradeep Kumar Bhalla,1989,Lala Lajpat Rai Hall
-Rajeev Kumar Saraf,1989,Nehru Hall
-Rakesh Chandubhai Pandya,1989,Rajendra Prasad Hall
-Ramakrishna Manne,1989,Azad Hall
-Ravindra Kumar Sinha,1989,Vidya Sagar Hall
-Sanjay Prakash Gupta,1989,Rajendra Prasad Hall
-Sanjay Dutt,1989,Lala Lajpat Rai Hall
-Sanjiv Kumar Singh,1989,Rajendra Prasad Hall
-Shambhu Sharan,1989,
-Sibasish Padhi,1989,Vidya Sagar Hall
-Sujit Bhattacharyya,1989,Nehru Hall
-Sumit Das,1989,Lala Lajpat Rai Hall
-Sumit Chakraborty,1989,Radhakrishnan Hall
-Suresh Adina,1989,Azad Hall
-Tapash Kumar Gupta,1975,Patel Hall
-Chiranjit Ghosh,1976,Patel Hall
-L Ravindra Rao,1976,Patel Hall
-Samir Biswas,1976,
-Kunal Bhattacharya,1977,Patel Hall
-Ranjit Kumar Jana,1977,Patel Hall
-Chandra Sekhar Bandyopadhyay,1978,Patel Hall
+id,Name,Hall,AlumSince,assgned,registered,paid
+,Atanu Das,Rajendra Prasad Hall,1964,No,No,No
+,B K Tariyal,,1964,No,No,No
+,Jyoti Parshad Banerjee,,1964,No,No,No
+,K K Saxena,Rajendra Prasad Hall,1964,No,No,No
+,Kiran Sankar Sahu,,1964,No,No,No
+,Mithilesh Kumar Sinha,Azad Hall,1964,No,No,No
+,Satish Bansal,Nehru Hall,1964,No,No,No
+,Tapash Kumar Pal,Rajendra Prasad Hall,1964,No,No,No
+,Amitava De,Lala Lajpat Rai Hall,1974,No,No,No
+,Ashok Kumar Ghosh,Lala Lajpat Rai Hall,1974,No,No,No
+,Niladri Nirjhar Biswas,,1974,No,No,No
+,Partha Sen,Rajendra Prasad Hall,1974,No,No,No
+,Pramod Kumar Gupta,Vidya Sagar Hall,1974,No,No,No
+,Shyam Sunder Verma,Vidya Sagar Hall,1974,No,No,No
+,Sudip Sen,Nehru Hall,1974,No,No,No
+,Sushim Kumar Dasgupta,Patel Hall,1974,No,No,No
+,Tirthankar Banerjee,Patel Hall,1974,No,No,No
+,Swapan Guha,Rajendra Prasad Hall,1974,No,No,No
+,Vinod Rai Juthani,,1974,No,No,No
+,S Anand,Azad Hall,1989,No,No,No
+,Ashis Kumar Roy,Azad Hall,1989,No,No,No
+,Dinesh Shastri,Patel Hall,1989,No,No,No
+,J Ramesh,Radhakrishnan Hall,1989,No,No,No
+,Jayanta Kumar Rudra,,1989,No,No,No
+,Peshwa Acharya,Rajendra Prasad Hall,1989,No,No,No
+,Pradeep Kumar Bhalla,Lala Lajpat Rai Hall,1989,No,No,No
+,Rajeev Kumar Saraf,Nehru Hall,1989,No,No,No
+,Rakesh Chandubhai Pandya,Rajendra Prasad Hall,1989,No,No,No
+,Ramakrishna Manne,Azad Hall,1989,No,No,No
+,Ravindra Kumar Sinha,Vidya Sagar Hall,1989,No,No,No
+,Sanjay Prakash Gupta,Rajendra Prasad Hall,1989,No,No,No
+,Sanjay Dutt,Lala Lajpat Rai Hall,1989,No,No,No
+,Sanjiv Kumar Singh,Rajendra Prasad Hall,1989,No,No,No
+,Shambhu Sharan,,1989,No,No,No
+,Sibasish Padhi,Vidya Sagar Hall,1989,No,No,No
+,Sujit Bhattacharyya,Nehru Hall,1989,No,No,No
+,Sumit Das,Lala Lajpat Rai Hall,1989,No,No,No
+,Sumit Chakraborty,Radhakrishnan Hall,1989,No,No,No
+,Suresh Adina,Azad Hall,1989,No,No,No
+,Tapash Kumar Gupta,Patel Hall,1975,No,No,No
+,Chiranjit Ghosh,Patel Hall,1976,No,No,No
+,L Ravindra Rao,Patel Hall,1976,No,No,No
+,Samir Biswas,,1976,No,No,No
+,Kunal Bhattacharya,Patel Hall,1977,No,No,No
+,Ranjit Kumar Jana,Patel Hall,1977,No,No,No
+,Chandra Sekhar Bandyopadhyay,Patel Hall,1978,No,No,No
