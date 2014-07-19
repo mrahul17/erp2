@@ -18,7 +18,7 @@ if($privilege!=-2 && $privilege!=1 && $privilege!=2 && $privilege!=3){
 	$fields = $this->db->list_fields($table);
 echo form_open('coordinator/register_alumni');
 foreach ($fields as $field)
-{
+{if($field!="assigned"){
    echo '<select name ="'.$field.'" class="form-control">';
    
     // Time to use query bindings
@@ -45,7 +45,7 @@ foreach ($fields as $field)
 echo '</select><br>';
    
    //echo $query;
-}
+}}
 echo '<input type="submit" class="form-control" value = "Register alumni" name = "register">'; 
 echo '</form>';
 	
