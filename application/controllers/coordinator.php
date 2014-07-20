@@ -45,7 +45,6 @@ class Coordinator extends CI_Controller{
 		$config['overwrite'] = FALSE;
 		$config['remove-spaces'] = TRUE;
 		$this->upload->initialize($config);
-		var_dump($config);		
 		$this->upload->do_upload();
 		echo $this->upload->display_errors('<p>', '</p>');
 	}}}
@@ -264,8 +263,15 @@ class Coordinator extends CI_Controller{
 	header('Refresh:3,url=index.sac');
 	echo "<h2>No query specified.. You will automatically be redirected..</h2>";
 }
-}//}
+}
 }}
+
+public function update(){
+	$student = $_POST['student'];
+	$query = $this->db->get_where('work',array('toname'=>$student));
+	$this->load->view('coordinators/detailedUpdates');
+
+}	
 
 }
 
