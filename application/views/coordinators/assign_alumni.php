@@ -6,6 +6,26 @@
 <?php $this->load->view('templates/header');?>
 <ol>
   <li>
+<h2>See work of Students</h2>
+<?php
+$query = $this->db->get_where('users',array('privilege'=>1));
+
+echo form_open('coordinator/updates');
+
+foreach ($query->result_array() as $row) {
+  $name = $row['name'];
+  echo '<input type="radio"  name="student" value="'.$name.'"">'.$name.'<br>';
+  # code...
+}
+
+echo '<br><input type="submit" name="submit" value="Get Updates">';
+
+echo '</form>';
+
+
+?>
+  </li>
+  <li>
 <h2>Assign a work to the members</h2>
 
   		<?php echo form_open('coordinator/assignwork');?>
