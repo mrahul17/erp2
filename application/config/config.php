@@ -57,7 +57,11 @@ $config['uri_protocol']	= 'AUTO';
 | http://codeigniter.com/user_guide/general/urls.html
 */
 
+<<<<<<< HEAD
 $config['url_suffix'] = '';
+=======
+$config['url_suffix'] = '.sac';
+>>>>>>> origin/master
 
 /*
 |--------------------------------------------------------------------------
@@ -357,6 +361,10 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+<<<<<<< HEAD
 
+=======
+$config['encryption_key'] = "acyut";
+>>>>>>> origin/master
 /* End of file config.php */
 /* Location: ./application/config/config.php */

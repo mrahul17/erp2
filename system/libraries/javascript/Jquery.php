@@ -3,7 +3,11 @@
 /**
  * CodeIgniter
  *
+<<<<<<< HEAD
  * An open source application development framework for PHP 5.1.6 or newer
+=======
+ * An open source application development framework for PHP 4.3.2 or newer
+>>>>>>> origin/master
  *
  * @package		CodeIgniter
  * @author		ExpressionEngine Dev Team
@@ -23,7 +27,11 @@
  * @category	Loader
  * @link		http://www.codeigniter.com/user_guide/libraries/javascript.html
  */
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> origin/master
 class CI_Jquery extends CI_Javascript {
 
 	var $_javascript_folder = 'js';
@@ -36,11 +44,16 @@ class CI_Jquery extends CI_Javascript {
 
 	public function __construct($params)
 	{
+<<<<<<< HEAD
 		$this->CI =& get_instance();
+=======
+		$this->CI =& get_instance();	
+>>>>>>> origin/master
 		extract($params);
 
 		if ($autoload === TRUE)
 		{
+<<<<<<< HEAD
 			$this->script();
 		}
 
@@ -48,6 +61,15 @@ class CI_Jquery extends CI_Javascript {
 	}
 
 	// --------------------------------------------------------------------
+=======
+			$this->script();			
+		}
+		
+		log_message('debug', "Jquery Class Initialized");
+	}
+	
+	// --------------------------------------------------------------------	 
+>>>>>>> origin/master
 	// Event Code
 	// --------------------------------------------------------------------	
 

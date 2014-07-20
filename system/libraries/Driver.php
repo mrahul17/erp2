@@ -6,7 +6,11 @@
  *
  * @package		CodeIgniter
  * @author		EllisLab Dev Team
+<<<<<<< HEAD
  * @copyright	Copyright (c) 2006 - 2014, EllisLab, Inc.
+=======
+ * @copyright	Copyright (c) 2006 - 2012, EllisLab, Inc.
+>>>>>>> origin/master
  * @license		http://codeigniter.com/user_guide/license.html
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -43,11 +47,19 @@ class CI_Driver_Library {
 
 		// The class will be prefixed with the parent lib
 		$child_class = $this->lib_name.'_'.$child;
+<<<<<<< HEAD
 
 		// Remove the CI_ prefix and lowercase
 		$lib_name = ucfirst(strtolower(str_replace('CI_', '', $this->lib_name)));
 		$driver_name = strtolower(str_replace('CI_', '', $child_class));
 
+=======
+	
+		// Remove the CI_ prefix and lowercase
+		$lib_name = ucfirst(strtolower(str_replace('CI_', '', $this->lib_name)));
+		$driver_name = strtolower(str_replace('CI_', '', $child_class));
+		
+>>>>>>> origin/master
 		if (in_array($driver_name, array_map('strtolower', $this->valid_drivers)))
 		{
 			// check and see if the driver is in a separate file
@@ -220,6 +232,11 @@ class CI_Driver {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	// --------------------------------------------------------------------
+
+>>>>>>> origin/master
 }
 // END CI_Driver CLASS
 

@@ -6,7 +6,11 @@
  *
  * @package		CodeIgniter
  * @author		ExpressionEngine Dev Team
+<<<<<<< HEAD
  * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
+=======
+ * @copyright	Copyright (c) 2008 - 2011, EllisLab, Inc.
+>>>>>>> origin/master
  * @license		http://codeigniter.com/user_guide/license.html
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -144,6 +148,7 @@ class CI_Session {
 			return FALSE;
 		}
 
+<<<<<<< HEAD
 		// HMAC authentication
 		$len = strlen($session) - 40;
 
@@ -174,11 +179,30 @@ class CI_Session {
 			return FALSE;
 		}
 
+=======
+>>>>>>> origin/master
 		// Decrypt the cookie data
 		if ($this->sess_encrypt_cookie == TRUE)
 		{
 			$session = $this->CI->encrypt->decode($session);
 		}
+<<<<<<< HEAD
+=======
+		else
+		{
+			// encryption was not used, so we need to check the md5 hash
+			$hash	 = substr($session, strlen($session)-32); // get last 32 chars
+			$session = substr($session, 0, strlen($session)-32);
+
+			// Does the md5 hash match?  This is to prevent manipulation of session data in userspace
+			if ($hash !==  md5($session.$this->encryption_key))
+			{
+				log_message('error', 'The session cookie data did not match what was expected. This could be a possible hacking attempt.');
+				$this->sess_destroy();
+				return FALSE;
+			}
+		}
+>>>>>>> origin/master
 
 		// Unserialize the session array
 		$session = $this->_unserialize($session);
@@ -672,13 +696,22 @@ class CI_Session {
 		{
 			$cookie_data = $this->CI->encrypt->encode($cookie_data);
 		}
+<<<<<<< HEAD
 
 		$cookie_data .= hash_hmac('sha1', $cookie_data, $this->encryption_key);
+=======
+		else
+		{
+			// if encryption is not used, we provide an md5 hash to prevent userside tampering
+			$cookie_data = $cookie_data.md5($cookie_data.$this->encryption_key);
+		}
+>>>>>>> origin/master
 
 		$expire = ($this->sess_expire_on_close === TRUE) ? 0 : $this->sess_expiration + time();
 
 		// Set the cookie
 		setcookie(
+<<<<<<< HEAD
 			$this->sess_cookie_name,
 			$cookie_data,
 			$expire,
@@ -686,6 +719,15 @@ class CI_Session {
 			$this->cookie_domain,
 			$this->cookie_secure
 		);
+=======
+					$this->sess_cookie_name,
+					$cookie_data,
+					$expire,
+					$this->cookie_path,
+					$this->cookie_domain,
+					$this->cookie_secure
+				);
+>>>>>>> origin/master
 	}
 
 	// --------------------------------------------------------------------
@@ -790,4 +832,8 @@ class CI_Session {
 // END Session Class
 
 /* End of file Session.php */
+<<<<<<< HEAD
 /* Location: ./system/libraries/Session.php */
+=======
+/* Location: ./system/libraries/Session.php */
+>>>>>>> origin/master

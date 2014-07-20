@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Deny from all
+=======
+deny from all
+>>>>>>> origin/master

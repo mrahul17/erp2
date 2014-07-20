@@ -6,7 +6,11 @@
  *
  * @package		CodeIgniter
  * @author		EllisLab Dev Team
+<<<<<<< HEAD
  * @copyright	Copyright (c) 2006 - 2014, EllisLab, Inc.
+=======
+ * @copyright	Copyright (c) 2006 - 2012, EllisLab, Inc.
+>>>>>>> origin/master
  * @license		http://codeigniter.com/user_guide/license.html
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -322,7 +326,10 @@ class CI_Migration {
 	{
 		return get_instance()->$var;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 }
 
 /* End of file Migration.php */
